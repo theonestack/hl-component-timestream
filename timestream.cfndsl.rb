@@ -9,7 +9,7 @@ CloudFormation do
   kms_key_id = external_parameters.fetch(:kms_key_id, nil)
 
   Timestream_Database(:TimestreamDatabase) {
-    DatabaseName database_name
+    DatabaseName FnSub(database_name)
     KmsKeyId kms_key_id if !kms_key_id.nil?
     Tags timestream_tags
   }
@@ -22,7 +22,7 @@ CloudFormation do
     magnetic_store_retention = table['magnetic_store_retention'] if !table['magnetic_store_retention'].nil?
     
     Timestream_Table("TimestreamTable#{table_name_safe}") {
-      TableName table_name
+      TableName FnSub(table_name)
       DatabaseName Ref(:TimestreamDatabase)
       RetentionProperties ({
         MemoryStoreRetentionPeriodInHours: memory_store_retention,
