@@ -1,0 +1,17 @@
+
+# Optional config to name the Timestream database, otherwise an environment name based default is provided
+# database_name: MyDatabase
+
+# Set to provide your own KMS key for encryption, if not set a default kms is used
+# kms_key_id: arn:aws:kms:ap-southeast-2:111111111111:key/12345678-1234-1234-1234-111111111111
+
+# Create tables for your database within config
+# Table name must be provided
+# Retentions are optional but if set, both must be provided
+# tables:
+#   -
+#     name: MyTable
+#     memory_store_retention: 5
+#     magnetic_store_retention: 7
+#   -
+#     name: MySecondTable

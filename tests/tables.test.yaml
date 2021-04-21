@@ -1,0 +1,12 @@
+test_metadata:
+  type: config
+  name: tables
+  description: Using config for tables
+
+tables:
+  -
+    name: MyTable
+    memory_store_retention: 5
+    magnetic_store_retention: 7
+  -
+    name: MySecondTable
